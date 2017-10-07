@@ -15,11 +15,12 @@ const getBadges = () => {
 
 const printDom = (myBadges) => {
     let printString = "";
-    myBadges.forEach((badge)=> {
-        printString += `<div class="badgeIcons col-md-3">
-                            <img src="${badge.icon_url}">
-                        </div>`;
-    });
+    for (let i=0; i < myBadges.length; i++) {
+        myBadges[i].newId = i;
+        printString += `<div class="col-lg-2 badgeIcons animated wobble infinite" id="badgeme">
+                            <img id="mybadge" src="${myBadges[i].icon_url}">
+                        </div>`; 
+    }  
     printToPage(printString);
 };
 
